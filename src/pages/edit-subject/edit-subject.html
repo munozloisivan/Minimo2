@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Editar asignatura</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="updateSubject()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" required [(ngModel)]="nombre" name="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" required [(ngModel)]="estudios" name="estudios"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cuatrimestre</ion-label>
+      <ion-input type="number" required [(ngModel)]="cuatrimestre" name="cuatrimestre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select type="text"  required [(ngModel)]="tipo" name="tipo">
+        <ion-option value="Obligatoria">Obligatoria</ion-option>
+        <ion-option value="Optativa">Optativa</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button type="submit" block>Editar asignatura</button>
+  </form>
+</ion-content>

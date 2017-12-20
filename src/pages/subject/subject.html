@@ -21,8 +21,9 @@
     <ion-item-sliding *ngFor="let c of subjects">
       <ion-item>
         <h2>{{c.nombre}}</h2>
-        <p>Tipo: {{c.tipo}}</p>
         <p>Estudios: {{c.estudios}}</p>
+        <p>Tipo: {{c.tipo}}</p>
+        <p>Cuatrimestre: {{c.cuatrimestre}}</p>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="danger" (click)="deleteAsignatura(c._id)">
@@ -31,7 +32,7 @@
         </button>
       </ion-item-options>
       <ion-item-options side="left">
-        <button ion-button color="primary">
+        <button ion-button color="primary" (click)="goToEditAsignaturaPage(c._id)">
           <ion-icon name="mail"></ion-icon>
           Editar
         </button>

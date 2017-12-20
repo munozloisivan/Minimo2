@@ -13,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AddstudentPage } from "../pages/addstudent/addstudent";
 import { SubjectPage } from '../pages/subject/subject';
 import { AddsubjectPage } from '../pages/addsubject/addsubject';
+import { EditSubjectPage } from "../pages/edit-subject/edit-subject";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { SubjectProvider } from '../providers/subject/subject';
     TabsPage,
     AddstudentPage,
     SubjectPage,
-    AddsubjectPage
+    AddsubjectPage,
+    EditSubjectPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { SubjectProvider } from '../providers/subject/subject';
     TabsPage,
     AddstudentPage,
     SubjectPage,
-    AddsubjectPage
+    AddsubjectPage,
+    EditSubjectPage
   ],
   providers: [
     StatusBar,

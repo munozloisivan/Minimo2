@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import { SubjectProvider} from '../../providers/subject/subject';
 import { AddsubjectPage } from "../addsubject/addsubject";
+import { EditSubjectPage } from "../edit-subject/edit-subject";
 
 /**
  * Generated class for the SubjectPage page.
@@ -43,6 +44,10 @@ export class SubjectPage {
 
   goToAddAsignaturaPage() {
     this.navCtrl.push(AddsubjectPage);
+  }
+
+  goToEditAsignaturaPage(id) {
+    this.navCtrl.push(EditSubjectPage, {firstPassedId: id});
   }
 
   deleteAsignatura(id) {

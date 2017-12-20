@@ -54,5 +54,28 @@ export class SubjectProvider {
     });
   }
 
+  updateSubject(id, data) {
+    return new Promise((resolve, reject) => {
+      this.http.put(this.apiUrl +'subject/' + id, data)
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
+  showSubject(id) {
+    return new Promise((resolve, reject) => {
+      console.log('subject serviice show subject '+id);
+      this.http.get(this.apiUrl + 'subject/' + id)
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }
