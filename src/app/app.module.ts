@@ -3,13 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { HttpClient} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { AddstudentPage } from "../pages/addstudent/addstudent";
+import { SubjectPage } from '../pages/subject/subject';
+import { AddsubjectPage } from '../pages/addsubject/addsubject';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StudentProvider } from '../providers/rest/students';
+import { SubjectProvider } from '../providers/subject/subject';
 
 @NgModule({
   declarations: [
@@ -17,10 +25,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddstudentPage,
+    SubjectPage,
+    AddsubjectPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,12 +41,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddstudentPage,
+    SubjectPage,
+    AddsubjectPage
   ],
   providers: [
     StatusBar,
+    HttpClient,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StudentProvider,
+    SubjectProvider
   ]
 })
 export class AppModule {}
