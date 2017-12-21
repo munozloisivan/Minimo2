@@ -77,7 +77,8 @@ export class SubjectPage {
   }
 
   filterNombre() {
-    this.SubjectRest.showSubject_byName('Enginyeria d\'Aplicacions').then((res) => {
+    this.SubjectRest.showSubject_byName(this.nombreFilter).then((res) => {
+      console.log(this.nombreFilter);
       this.filters = res;
     }, (err) => {
       console.log(err);
@@ -85,7 +86,8 @@ export class SubjectPage {
   }
 
   filterCuatri() {
-    this.SubjectRest.showSubject_byCuatri(2).then((res) => {
+    this.SubjectRest.showSubject_byCuatri(this.cuatrimestreFilter).then((res) => {
+      console.log(this.cuatrimestreFilter);
       this.filters = res;
     }, (err) => {
       console.log(err);

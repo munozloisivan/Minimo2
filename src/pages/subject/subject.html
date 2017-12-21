@@ -49,10 +49,22 @@
       <ion-option value="Telemática">Telemática</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button color="primary" (click)="filterEstudios()">Titulacion filter</button>
-  <button ion-button color="primary" (click)="filterNombre()">Nombre filter</button>
-  <button ion-button color="primary" (click)="filterCuatri()">Cuatri filter</button>
-  <button ion-button color="primary" (click)="sortByName()">Ordenar filter</button>
+  <button ion-button color="primary" (click)="filterEstudios()">Titulacion</button>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-select type="text"  required [(ngModel)]="nombreFilter" name="titulacionFilter">
+      <ion-option *ngFor="let n of subjects" value="{{n.nombre}}">{{n.nombre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button color="primary" (click)="filterNombre()">Nombre</button>
+  <ion-item>
+    <ion-label>Cuatrimestre</ion-label>
+    <ion-select type="text"  required [(ngModel)]="cuatrimestreFilter" name="titulacionFilter">
+      <ion-option *ngFor="let n of subjects" value={{n.cuatrimestre}}>{{n.cuatrimestre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button color="primary" (click)="filterCuatri()">Cuatri</button>
+  <button ion-button color="primary" (click)="sortByName()">Ordenar</button>
 
   <ion-grid>
     <ion-row>
@@ -65,6 +77,9 @@
       <ion-col>
         Cuatrimestre
       </ion-col>
+      <ion-col>
+        Tipo
+      </ion-col>
     </ion-row>
     <ion-row *ngFor="let c of filters">
       <ion-col>
@@ -75,6 +90,9 @@
       </ion-col>
       <ion-col>
         {{c.cuatrimestre}}
+      </ion-col>
+      <ion-col>
+        {{c.tipo}}
       </ion-col>
     </ion-row>
   </ion-grid>
