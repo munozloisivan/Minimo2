@@ -25,6 +25,34 @@
         <ion-option value="Optativa">Optativa</ion-option>
       </ion-select>
     </ion-item>
+    <ion-list>
+    <ion-item>
+      <h2>Estudiantes matriculados:</h2>
+    </ion-item>
+    <ion-item-sliding *ngFor="let c of estudiantes">
+      <ion-item>
+        <h2>{{c.nombre}} {{c.apellido}}</h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteStudent(c._id)">
+          <ion-icon name="text"></ion-icon>
+          Desmatricular
+        </button>
+      </ion-item-options>
+      <!--<ion-item-options side="left">
+        <button ion-button color="primary" (click)="goToEditAsignaturaPage(c._id)">
+          <ion-icon name="mail"></ion-icon>
+          Editar
+        </button>
+      </ion-item-options>-->
+    </ion-item-sliding>
+    </ion-list>
     <button ion-button type="submit" block>Editar asignatura</button>
   </form>
+  <ion-item>
+    <ion-label>Añadir estudiante</ion-label>
+    <ion-input type="text" required [(ngModel)]="student" name="student"></ion-input>
+  </ion-item>
+  <button ion-button type="submit" block (click)="addStudent(student)">Añadir</button>
+  <button ion-button type="submit" block (click)="goToMatStudentPage()">Ir a Matricular</button>
 </ion-content>

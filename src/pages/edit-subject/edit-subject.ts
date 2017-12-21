@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {SubjectProvider} from "../../providers/subject/subject";
+import { MatricularStudentPage } from "../matricular-student/matricular-student";
 
 /**
  * Generated class for the EditSubjectPage page.
@@ -21,6 +22,7 @@ export class EditSubjectPage {
   estudios: string;
   cuatrimestre: string;
   tipo: string;
+  estudiantes: {}[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public subjectRest: SubjectProvider, private toastCtrl: ToastController ) {
 
@@ -38,6 +40,7 @@ export class EditSubjectPage {
       this.estudios = res['estudios'];
       this.cuatrimestre = res['cuatrimestre'];
       this.tipo = res['tipo'];
+      this.estudiantes = res['estudiantes'];
     }, (err) => {
       console.log(err);
     });
@@ -49,6 +52,7 @@ export class EditSubjectPage {
       cuatrimestre: this.cuatrimestre,
       tipo: this.tipo}).then((result) => {
       this.presentToast('Modificada correctamente');
+      this.navCtrl.pop();
       //let id = result['_id'];
     }, (err) => {
       console.log(err);
@@ -56,10 +60,34 @@ export class EditSubjectPage {
     });
   }
 
+  addStudent(idstudent) {
+    this.subjectRest.addStudentToSubject(this.IDsubject, idstudent).then((result) => {
+      this.getSubjectDetail(this.IDsubject);
+      this.navCtrl.pop();
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  deleteStudent(idstudent) {
+    this.subjectRest.deleteStudentFromSubject(this.IDsubject, idstudent).then((result) => {
+      this.presentToast('Eliminado Correctamente');
+      this.getSubjectDetail(this.IDsubject);
+      this.navCtrl.canGoBack();
+    }, (err) => {
+      this.presentToastFail('Error al eliminar');
+      console.log(err);
+    });
+  }
+
+  goToMatStudentPage() {
+    this.navCtrl.push(MatricularStudentPage, {PassedId: this.IDsubject});
+  }
+
   presentToast(mensaje) {
     let toast = this.toastCtrl.create({
       message: mensaje,
-      duration: 1500,
+      duration: 2500,
       position: 'bottom',
       cssClass: "toast-success",
       dismissOnPageChange: true
@@ -75,7 +103,7 @@ export class EditSubjectPage {
   presentToastFail(mensaje) {
     let toast = this.toastCtrl.create({
       message: mensaje,
-      duration: 2000,
+      duration: 2500,
       position: 'bottom',
       dismissOnPageChange: true
     });

@@ -78,4 +78,28 @@ export class SubjectProvider {
         });
     });
   }
+
+  addStudentToSubject(id, idstudent) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + 'subject/' + id + '/students/' + idstudent, null)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  deleteStudentFromSubject(id, student) {
+    return new Promise((resolve, reject) => {
+      this.http.put(this.apiUrl + 'subject/' + id + '/students/' + student, null)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+
 }

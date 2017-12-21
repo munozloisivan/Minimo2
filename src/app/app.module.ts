@@ -14,6 +14,7 @@ import { AddstudentPage } from "../pages/addstudent/addstudent";
 import { SubjectPage } from '../pages/subject/subject';
 import { AddsubjectPage } from '../pages/addsubject/addsubject';
 import { EditSubjectPage } from "../pages/edit-subject/edit-subject";
+import { MatricularStudentPage } from "../pages/matricular-student/matricular-student";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +31,7 @@ import { SubjectProvider } from '../providers/subject/subject';
     AddstudentPage,
     SubjectPage,
     AddsubjectPage,
+    MatricularStudentPage,
     EditSubjectPage
   ],
   imports: [
@@ -47,6 +49,7 @@ import { SubjectProvider } from '../providers/subject/subject';
     AddstudentPage,
     SubjectPage,
     AddsubjectPage,
+    MatricularStudentPage,
     EditSubjectPage
   ],
   providers: [
