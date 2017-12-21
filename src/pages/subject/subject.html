@@ -49,25 +49,33 @@
       <ion-option value="Telemática">Telemática</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button color="primary" (click)="filterEstudios('Sistemas')">Titulacion filter</button>
-  <ion-item-sliding *ngFor="let p of filters">
-    <ion-item>
-      <h2>{{p.nombre}}</h2>
-      <p>Estudios: {{p.estudios}}</p>
-      <p>Tipo: {{p.tipo}}</p>
-      <p>Cuatrimestre: {{p.cuatrimestre}}</p>
-    </ion-item>
-    <ion-item-options side="right">
-      <button ion-button color="danger" (click)="deleteAsignatura(p._id)">
-        <ion-icon name="text"></ion-icon>
-        Eliminar
-      </button>
-    </ion-item-options>
-    <ion-item-options side="left">
-      <button ion-button color="primary" (click)="goToEditAsignaturaPage(p._id)">
-        <ion-icon name="mail"></ion-icon>
-        Editar
-      </button>
-    </ion-item-options>
-  </ion-item-sliding>
+  <button ion-button color="primary" (click)="filterEstudios()">Titulacion filter</button>
+  <button ion-button color="primary" (click)="filterNombre()">Nombre filter</button>
+  <button ion-button color="primary" (click)="filterCuatri()">Cuatri filter</button>
+  <button ion-button color="primary" (click)="sortByName()">Ordenar filter</button>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Nombre
+      </ion-col>
+      <ion-col>
+        Estudios
+      </ion-col>
+      <ion-col>
+        Cuatrimestre
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let c of filters">
+      <ion-col>
+        {{c.nombre}}
+      </ion-col>
+      <ion-col>
+        {{c.estudios}}
+      </ion-col>
+      <ion-col>
+        {{c.cuatrimestre}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

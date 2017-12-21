@@ -21,6 +21,8 @@ export class SubjectPage {
   subjects: any;
   errorMessage: string;
   estudiosFilter: string;
+  nombreFilter: string;
+  cuatrimestreFilter: number;
 
   filters: any;
 
@@ -64,24 +66,57 @@ export class SubjectPage {
     });
   }
 
-  filterEstudios(estudiosFilterx) {
-    this.SubjectRest.showSubject_byEstudios(estudiosFilterx).then((res) => {
+  filterEstudios() {
+    this.SubjectRest.showSubject_byEstudios(this.estudiosFilter).then((res) => {
       this.filters = res;
-      this.getSubjectListFilter();
+      // this.getSubjectListFilter();
       console.log(res);
     }, (err) => {
       console.log(err);
     });
   }
 
-  getSubjectListFilter() {
-    this.SubjectRest.showSubject_byEstudios(this.estudiosFilter).then((res) => {
+  filterNombre() {
+    this.SubjectRest.showSubject_byName('Enginyeria d\'Aplicacions').then((res) => {
+      this.filters = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  filterCuatri() {
+    this.SubjectRest.showSubject_byCuatri(2).then((res) => {
+      this.filters = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  sortByName() {
+    this.SubjectRest.showSubjectSorted().then((res) => {
+      this.filters = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getFilter() {
+    this.SubjectRest.getAllSubjects().then((res) => {
       this.filters = res;
     }, (err) => {
       console.log(err);
       this.errorMessage = <any>err;
     });
   }
+
+ /* getSubjectListFilter() {
+    this.SubjectRest.showSubject_byEstudios(this.estudiosFilter).then((res) => {
+      this.filters = res;
+    }, (err) => {
+      console.log(err);
+      this.errorMessage = <any>err;
+    });
+  }*/
 
   presentToast(mensaje) {
     let toast = this.toastCtrl.create({

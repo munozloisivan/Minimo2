@@ -112,4 +112,40 @@ export class SubjectProvider {
         });
     });
   }
+
+  showSubject_byName(name) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + 'subject/filter_nombre/' + name)
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  showSubject_byCuatri(name) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + 'subject/filter_cuatri/' + name)
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  showSubjectSorted() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + 'subject/sorted')
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }
