@@ -39,6 +39,10 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+
+
+
   <ion-card-header>
     <h2>Filtrado Asignaturas</h2>
   </ion-card-header>
@@ -68,32 +72,33 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col col-5>
         Nombre
       </ion-col>
-      <ion-col>
+      <ion-col col-4>
         Estudios
       </ion-col>
-      <ion-col>
-        Cuatrimestre
-      </ion-col>
-      <ion-col>
+   <!--   <ion-col col-4>
         Tipo
+      </ion-col>-->
+      <ion-col col-3>
+        Cuatri
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let c of filters">
-      <ion-col>
+      <ion-col col-5>
         {{c.nombre}}
       </ion-col>
-      <ion-col>
+      <ion-col col-4>
         {{c.estudios}}
       </ion-col>
-      <ion-col>
+     <!-- <ion-col col-4>
+        {{c.tipo}}
+      </ion-col>-->
+      <ion-col col-3>
         {{c.cuatrimestre}}
       </ion-col>
-      <ion-col>
-        {{c.tipo}}
-      </ion-col>
+
     </ion-row>
   </ion-grid>
 </ion-content>

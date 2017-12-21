@@ -9,8 +9,9 @@
 
   <ion-list>
     <ion-item *ngFor="let c of students">
-      <h2>{{c.nombre}}</h2>
-      <p>Apellido: {{c.apellido}}, Edad: {{c.edad}}, Genero: {{c.genero}}</p>
+      <h2>{{c.nombre}} {{c.apellido}}</h2>
+      <p>Edad: {{c.edad}}</p>
+      <p>Genero: {{c.genero}}</p>
     </ion-item>
   </ion-list>
 </ion-content>
