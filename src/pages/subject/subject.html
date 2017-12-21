@@ -39,6 +39,35 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-
-
+  <ion-card-header>
+    <h2>Filtrado Asignaturas</h2>
+  </ion-card-header>
+  <ion-item>
+    <ion-label>Estudios</ion-label>
+    <ion-select type="text"  required [(ngModel)]="estudiosFilter" name="titulacionFilter">
+      <ion-option value="Sistemas">Sistemas</ion-option>
+      <ion-option value="Telemática">Telemática</ion-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button color="primary" (click)="filterEstudios('Sistemas')">Titulacion filter</button>
+  <ion-item-sliding *ngFor="let p of filters">
+    <ion-item>
+      <h2>{{p.nombre}}</h2>
+      <p>Estudios: {{p.estudios}}</p>
+      <p>Tipo: {{p.tipo}}</p>
+      <p>Cuatrimestre: {{p.cuatrimestre}}</p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteAsignatura(p._id)">
+        <ion-icon name="text"></ion-icon>
+        Eliminar
+      </button>
+    </ion-item-options>
+    <ion-item-options side="left">
+      <button ion-button color="primary" (click)="goToEditAsignaturaPage(p._id)">
+        <ion-icon name="mail"></ion-icon>
+        Editar
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-content>

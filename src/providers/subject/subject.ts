@@ -101,5 +101,15 @@ export class SubjectProvider {
     });
   }
 
-
+  showSubject_byEstudios(name) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl +'subject/filter_estudios/' + name)
+        .map(res => res)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

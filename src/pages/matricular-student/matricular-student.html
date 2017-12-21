@@ -14,6 +14,8 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let s of students" (click)="addStudent(s._id)"></button>
+    <button ion-item *ngFor="let s of students" (click)="addStudent(s._id)">
+      <ion-icon name="person" item-start></ion-icon>
+    </button>
   </ion-list>
 </ion-content>

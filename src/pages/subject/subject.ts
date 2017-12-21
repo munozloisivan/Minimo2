@@ -20,6 +20,9 @@ export class SubjectPage {
 
   subjects: any;
   errorMessage: string;
+  estudiosFilter: string;
+
+  filters: any;
 
   constructor(private toastCtrl: ToastController,public navCtrl: NavController, public navParams: NavParams, public SubjectRest: SubjectProvider ) {
   }
@@ -58,6 +61,25 @@ export class SubjectPage {
     }, (err) => {
       console.log(err);
       this.presentToastFail('Error al eliminarla')
+    });
+  }
+
+  filterEstudios(estudiosFilterx) {
+    this.SubjectRest.showSubject_byEstudios(estudiosFilterx).then((res) => {
+      this.filters = res;
+      this.getSubjectListFilter();
+      console.log(res);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getSubjectListFilter() {
+    this.SubjectRest.showSubject_byEstudios(this.estudiosFilter).then((res) => {
+      this.filters = res;
+    }, (err) => {
+      console.log(err);
+      this.errorMessage = <any>err;
     });
   }
 
