@@ -34,6 +34,10 @@ export class EditSubjectPage {
     this.getSubjectDetail(this.IDsubject);
   }
 
+  ionViewWillEnter() {
+    this.getSubjectDetail(this.IDsubject);
+  }
+
   getSubjectDetail(id) {
     this.subjectRest.showSubject(id).then((res) => {
       this.nombre = res['nombre'];

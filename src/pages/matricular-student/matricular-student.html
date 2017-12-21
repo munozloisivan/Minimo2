@@ -14,8 +14,6 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let c of students" >
-      <ion-label>{{c.nombre}} {{c.apellido}}</ion-label>
-    </ion-item>
+    <button ion-item *ngFor="let s of students" (click)="addStudent(s._id)"></button>
   </ion-list>
 </ion-content>
