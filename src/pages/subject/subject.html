@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="goToAddAsignaturaPage()">Añadir Asignatura</button>
+  <button ion-button round (click)="goToAddAsignaturaPage()">Añadir Asignatura</button>
 
   <ion-list>
     <ion-item-sliding *ngFor="let c of subjects">
@@ -53,22 +53,22 @@
       <ion-option value="Telemática">Telemática</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button color="primary" (click)="filterEstudios()">Titulacion</button>
+  <button ion-button round color="primary" (click)="filterEstudios()">Titulacion</button>
   <ion-item>
     <ion-label>Nombre</ion-label>
     <ion-select type="text"  required [(ngModel)]="nombreFilter" name="titulacionFilter">
       <ion-option *ngFor="let n of subjects" value="{{n.nombre}}">{{n.nombre}}</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button color="primary" (click)="filterNombre()">Nombre</button>
+  <button ion-button round color="primary" (click)="filterNombre()">Nombre</button>
   <ion-item>
     <ion-label>Cuatrimestre</ion-label>
     <ion-select type="text"  required [(ngModel)]="cuatrimestreFilter" name="titulacionFilter">
       <ion-option *ngFor="let n of subjects" value={{n.cuatrimestre}}>{{n.cuatrimestre}}</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button color="primary" (click)="filterCuatri()">Cuatri</button>
-  <button ion-button color="primary" (click)="sortByName()">Ordenar</button>
+  <button ion-button round color="primary" (click)="filterCuatri()">Cuatri</button>
+  <button ion-button round color="primary" (click)="sortByName()">Ordenar</button>
 
   <ion-grid>
     <ion-row>

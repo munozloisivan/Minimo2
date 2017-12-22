@@ -5,14 +5,16 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="goToAddStudentPage()">Añadir Estudiante</button>
+  <button ion-button round (click)="goToAddStudentPage()">Añadir Estudiante</button>
 
   <ion-list>
     <ion-item-sliding *ngFor="let c of students">
       <ion-item>
         <h2>{{c.nombre}} {{c.apellido}}</h2>
-        <p>Edad: {{c.edad}}</p>
-        <p>Genero: {{c.genero}}</p>
+        <p><strong>Edad:</strong> {{c.edad}}</p>
+        <p><strong>Género:</strong> {{c.genero}}</p>
+        <p><strong>Asignaturas:</strong></p>
+        <p *ngFor="let u of c.asignaturas">*{{u.nombre}}</p>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="danger" (click)="deleteStudent(c._id)">

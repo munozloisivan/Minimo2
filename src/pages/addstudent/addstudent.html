@@ -7,14 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>addstudent</ion-title>
+    <ion-title>Añadir Estudiante</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h2>Add User</h2>
   <form (ngSubmit)="saveStudent()">
     <ion-item>
       <ion-label>Nombre</ion-label>
@@ -29,12 +28,12 @@
       <ion-input type="number" [(ngModel)]="student.edad" name="edad"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Genero</ion-label>
+      <ion-label>Género</ion-label>
       <ion-select type="text" [(ngModel)]="student.genero" name="genero">
         <ion-option value="Hombre">Hombre</ion-option>
         <ion-option value="Mujer">Mujer</ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button type="submit" block>Añadir usuario</button>
+    <button ion-button type="submit" block>Añadir</button>
   </form>
 </ion-content>
