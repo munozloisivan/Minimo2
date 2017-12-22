@@ -72,21 +72,24 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-5>
-        <h4>Nombre</h4>
+      <ion-col col-4>
+        <h6>Nombre</h6>
       </ion-col>
       <ion-col col-4>
-        <h4>Estudios</h4>
+        <h6>Estudios</h6>
       </ion-col>
    <!--   <ion-col col-4>
         Tipo
       </ion-col>-->
       <ion-col col-3>
-        <h4>Cuatri</h4>
+        <h6>Cuatri</h6>
+      </ion-col>
+      <ion-col>
+        St
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let c of filters">
-      <ion-col col-5>
+      <ion-col col-4>
         {{c.nombre}}
       </ion-col>
       <ion-col col-4>
@@ -96,7 +99,10 @@
         {{c.tipo}}
       </ion-col>-->
       <ion-col col-3>
-        {{c.cuatrimestre}}
+      {{c.cuatrimestre}}
+      </ion-col>
+      <ion-col>
+        {{c.estudiantes.length}}
       </ion-col>
 
     </ion-row>
