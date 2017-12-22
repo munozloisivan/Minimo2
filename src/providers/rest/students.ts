@@ -55,6 +55,16 @@ export class StudentProvider {
     });
   }
 
+  deleteStudent(id) {
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.apiUrl + 'student/' + id)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
 
 }

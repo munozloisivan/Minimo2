@@ -8,10 +8,23 @@
   <button ion-button (click)="goToAddStudentPage()">Añadir Estudiante</button>
 
   <ion-list>
-    <ion-item *ngFor="let c of students">
+    <ion-item-sliding *ngFor="let c of students">
+      <ion-item>
+        <h2>{{c.nombre}} {{c.apellido}}</h2>
+        <p>Edad: {{c.edad}}</p>
+        <p>Genero: {{c.genero}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteStudent(c._id)">
+          <ion-icon name="text"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  <!--  <ion-item *ngFor="let c of students">
       <h2>{{c.nombre}} {{c.apellido}}</h2>
       <p>Edad: {{c.edad}}</p>
       <p>Genero: {{c.genero}}</p>
-    </ion-item>
+    </ion-item>-->
   </ion-list>
 </ion-content>
