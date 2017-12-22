@@ -16,6 +16,7 @@
   <ion-list>
     <button ion-item *ngFor="let s of students" (click)="addStudent(s._id)">
       <ion-icon name="person" item-start></ion-icon>
+      <ion-label>{{s.nombre}} {{s.apellido}}</ion-label>
     </button>
   </ion-list>
 </ion-content>
