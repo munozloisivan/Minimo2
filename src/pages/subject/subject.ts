@@ -69,6 +69,8 @@ export class SubjectPage {
   filterEstudios() {
     this.SubjectRest.showSubject_byEstudios(this.estudiosFilter).then((res) => {
       this.filters = res;
+      this.cuatrimestreFilter = null;
+      this.nombreFilter = null;
       // this.getSubjectListFilter();
       console.log(res);
     }, (err) => {
@@ -80,6 +82,8 @@ export class SubjectPage {
     this.SubjectRest.showSubject_byName(this.nombreFilter).then((res) => {
       console.log(this.nombreFilter);
       this.filters = res;
+      this.cuatrimestreFilter = null;
+      this.estudiosFilter = null;
     }, (err) => {
       console.log(err);
     });
@@ -89,6 +93,8 @@ export class SubjectPage {
     this.SubjectRest.showSubject_byCuatri(this.cuatrimestreFilter).then((res) => {
       console.log(this.cuatrimestreFilter);
       this.filters = res;
+      this.nombreFilter = null;
+      this.estudiosFilter = null;
     }, (err) => {
       console.log(err);
     });
@@ -97,6 +103,9 @@ export class SubjectPage {
   sortByName() {
     this.SubjectRest.showSubjectSorted().then((res) => {
       this.filters = res;
+      this.cuatrimestreFilter = null;
+      this.estudiosFilter = null;
+      this.nombreFilter = null;
     }, (err) => {
       console.log(err);
     });
